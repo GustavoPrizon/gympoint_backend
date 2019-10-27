@@ -6,6 +6,7 @@ class Studenst extends Model {
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
+        idade: Sequelize.INTEGER,
         altura: Sequelize.FLOAT,
         peso: Sequelize.FLOAT,
       },

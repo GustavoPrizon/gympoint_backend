@@ -16,6 +16,10 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      idade: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       altura: {
         type: Sequelize.FLOAT,
         allowNull: false,

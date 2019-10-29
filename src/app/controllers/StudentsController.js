@@ -63,7 +63,7 @@ class StudentsController {
 
     const student = await Students.findByPk(id);
 
-    if (email === student.email) {
+    if (email !== student.email) {
       const studentsExists = await Students.findOne({
         where: { email },
       });

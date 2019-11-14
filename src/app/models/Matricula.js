@@ -18,7 +18,7 @@ class Matricula extends Model {
     return this;
   }
 
-  static associations(models) {
+  static associate(models) {
     this.belongsTo(models.Students, {
       foreignKey: 'student_id',
       as: 'student',

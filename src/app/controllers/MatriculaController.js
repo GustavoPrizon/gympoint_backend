@@ -1,9 +1,9 @@
 import * as Yup from 'yup';
 import { parseISO, addMonths, subDays, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import Matricula from '../models/Matricula';
 import Students from '../models/Students';
 import Plano from '../models/Planos';
+import Matricula from '../models/Matricula';
 
 const { Op } = require('sequelize');
 

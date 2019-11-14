@@ -25,16 +25,13 @@ class MatriculaController {
 
     const { student_id, plano_id, start_date } = req.body;
 
-    // calcula valor total
     const studentPlano = await Plano.findByPk(plano_id);
     const { duration, price } = studentPlano;
     const totalPrice = duration * price;
 
-    // calcula data final
     const parsedStartDate = parseISO(start_date);
     const parsedEndDate = subDays(addMonths(parsedStartDate, duration), 1);
 
-    // verifica se o aluno já está matriculado
     const matriculaExist = await Matricula.findOne({
       where: { student_id, end_date: { [Op.gte]: parsedEndDate } },
       order: ['end_date'],
@@ -56,7 +53,6 @@ class MatriculaController {
       });
     }
 
-    // cria matricula
     const matriculaSave = await Matricula.create({
       student_id,
       plano_id,

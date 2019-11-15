@@ -84,6 +84,12 @@ class StudentsController {
       peso,
     });
   }
+
+  async index(req, res) {
+    const students = await Students.findAll();
+
+    return res.json(students);
+  }
 }
 
 export default new StudentsController();

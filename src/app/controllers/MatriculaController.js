@@ -1,9 +1,9 @@
 import * as Yup from 'yup';
 import { parseISO, addMonths, subDays, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
-import Students from '../models/Students';
+import Student from '../models/Students';
 import Plano from '../models/Planos';
-import Matricula from '../models/Matricula';
+import Matricula from '../models/Matriculas';
 
 const { Op } = require('sequelize');
 
@@ -36,7 +36,7 @@ class MatriculaController {
       where: { student_id, end_date: { [Op.gte]: parsedEndDate } },
       order: ['end_date'],
       include: {
-        model: Students,
+        model: Student,
         as: 'student',
         attributes: ['id', 'name', 'email'],
       },
@@ -64,7 +64,7 @@ class MatriculaController {
     const matricula = await Matricula.findByPk(matriculaSave.id, {
       include: [
         {
-          model: Students,
+          model: Student,
           as: 'student',
           attributes: ['id', 'name', 'email'],
         },
@@ -96,8 +96,8 @@ class MatriculaController {
     const matricula = await Matricula.findByPk(id, {
       include: [
         {
-          model: Students,
-          as: 'students',
+          model: Student,
+          as: 'student',
           attributes: ['name', 'email'],
         },
       ],
@@ -128,8 +128,8 @@ class MatriculaController {
     let matricula = await Matricula.findByPk(id, {
       include: [
         {
-          model: Students,
-          as: 'students',
+          model: Student,
+          as: 'student',
           attributes: ['name', 'email'],
         },
       ],

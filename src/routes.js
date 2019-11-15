@@ -18,6 +18,7 @@ routes.use(authMiddleware);
 routes.put('/users', UserController.update);
 
 routes.post('/students', StudentsConroller.store);
+routes.get('/students', StudentsConroller.index);
 routes.put('/students/:id', StudentsConroller.update);
 
 routes.post('/planos', PlanosController.store);

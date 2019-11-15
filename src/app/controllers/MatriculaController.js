@@ -4,7 +4,9 @@ import pt from 'date-fns/locale/pt';
 import Student from '../models/Students';
 import Plano from '../models/Planos';
 import Matricula from '../models/Matriculas';
-import Mail from '../../lib/Mail';
+
+import MatriculaMail from '../jobs/MatriculaMail';
+import Queue from '../../lib/Queue';
 
 const { Op } = require('sequelize');
 
@@ -49,8 +51,7 @@ class MatriculaController {
         locale: pt,
       });
       return res.json({
-        message: `The student ${student.name} was enrolled
-        on the date ${formatDate}`,
+        message: `The student ${student.name} was enrolled on the date ${formatDate}`,
       });
     }
 
@@ -78,16 +79,8 @@ class MatriculaController {
     });
 
     // envia email
-    await Mail.sendMail({
-      to: `${matricula.student.name} <${matricula.student.email}>`,
-      subject: 'Você está matriculado!',
-      template: 'registration',
-      context: {
-        student: matricula.student.name,
-        plano: matricula.plano.title,
-        date: matricula.plano.duration,
-        price: matricula.plano.price,
-      },
+    await Queue.add(MatriculaMail.key, {
+      matricula,
     });
 
     return res.json(matricula);

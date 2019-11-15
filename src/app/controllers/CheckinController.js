@@ -37,7 +37,7 @@ class CheckinController {
       return res.status(401).json({ error: 'Students not exists.' });
     }
 
-    if (req.query.week != undefined) {
+    if (req.query.week !== undefined) {
       const dateMax = subDays(new Date(), 7);
       const checkin = await Checkins.findAll({
         where: {

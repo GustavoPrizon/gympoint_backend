@@ -5,6 +5,7 @@ import SessionController from './app/controllers/SessionController';
 import StudentsConroller from './app/controllers/StudentsController';
 import PlanosController from './app/controllers/PlanoController';
 import MatriculaController from './app/controllers/MatriculaController';
+import CheckinsController from './app/controllers/CheckinController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -12,6 +13,9 @@ const routes = new Router();
 
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
+
+routes.post('/checkin/:id', CheckinsController.store);
+routes.get('/checkin/:id', CheckinsController.index);
 
 routes.use(authMiddleware);
 

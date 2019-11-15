@@ -151,7 +151,7 @@ class MatriculaController {
       return res.status(401).json({ error: 'Matricula not exists.' });
     }
 
-    await Matricula.destroy();
+    await matricula.destroy();
 
     return res.json(matricula);
   }

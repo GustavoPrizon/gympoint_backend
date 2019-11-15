@@ -4,6 +4,7 @@ import pt from 'date-fns/locale/pt';
 import Student from '../models/Students';
 import Plano from '../models/Planos';
 import Matricula from '../models/Matriculas';
+import Mail from '../../lib/Mail';
 
 const { Op } = require('sequelize');
 
@@ -66,20 +67,28 @@ class MatriculaController {
         {
           model: Student,
           as: 'student',
-          attributes: ['id', 'name', 'email'],
+          attributes: ['name', 'email'],
         },
         {
           model: Plano,
           as: 'plano',
-          attributes: ['id', 'title', 'price'],
+          attributes: ['title', 'duration', 'price'],
         },
       ],
     });
 
     // envia email
-    /*
-    ....
-    */
+    await Mail.sendMail({
+      to: `${matricula.student.name} <${matricula.student.email}>`,
+      subject: 'Você está matriculado!',
+      template: 'registration',
+      context: {
+        student: matricula.student.name,
+        plano: matricula.plano.title,
+        date: matricula.plano.duration,
+        price: matricula.plano.price,
+      },
+    });
 
     return res.json(matricula);
   }

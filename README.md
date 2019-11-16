@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-entrega">Ferramentas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-ferramentas">Ferramentas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -34,7 +34,7 @@ Criado o backend da aplicação GymPoint. Onde um usuario Administrador, ira cad
 
 O aluno pode fazer checkin 5 na semana e fazer perguntas. 
 
-### :ferramentas: Um pouco sobre as ferramentas
+### Ferramentas
 
 - Sucrase + Nodemon;
 - ESLint + Prettier + EditorConfig;

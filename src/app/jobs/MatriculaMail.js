@@ -1,3 +1,5 @@
+import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
 import Mail from '../../lib/Mail';
 
 class MatriculaMail {
@@ -19,6 +21,12 @@ class MatriculaMail {
         plano: matricula.plano.title,
         date: matricula.plano.duration,
         price: matricula.plano.price,
+        start_date: format(parseISO(matricula.start_date), 'dd/MM/yyyy', {
+          locale: pt,
+        }),
+        end_date: format(parseISO(matricula.end_date), 'dd/MM/yyyy', {
+          locale: pt,
+        }),
       },
     });
   }

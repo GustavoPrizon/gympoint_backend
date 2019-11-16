@@ -7,6 +7,7 @@ import PlanosController from './app/controllers/PlanoController';
 import MatriculaController from './app/controllers/MatriculaController';
 import CheckinsController from './app/controllers/CheckinController';
 import HelpContoller from './app/controllers/HelpController';
+import AnswerController from './app/controllers/AnswerComtroller';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -39,5 +40,8 @@ routes.get('/matricula', MatriculaController.index);
 routes.put('/matricula/:id', MatriculaController.update);
 routes.get('/matricula/:id', MatriculaController.details);
 routes.delete('/matricula/:id', MatriculaController.delete);
+
+routes.post('/help/:id/answer', AnswerController.store);
+routes.get('/help', AnswerController.index);
 
 export default routes;

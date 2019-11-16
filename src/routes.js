@@ -8,7 +8,7 @@ import MatriculaController from './app/controllers/MatriculaController';
 import CheckinsController from './app/controllers/CheckinController';
 import HelpContoller from './app/controllers/HelpController';
 import AnswerController from './app/controllers/AnswerComtroller';
-
+import NotificationController from './app/controllers/NotificationController';
 import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
@@ -43,5 +43,8 @@ routes.delete('/matricula/:id', MatriculaController.delete);
 
 routes.post('/help/:id/answer', AnswerController.store);
 routes.get('/help', AnswerController.index);
+
+routes.get('/notification', NotificationController.index);
+routes.put('/notification/:id', NotificationController.update);
 
 export default routes;

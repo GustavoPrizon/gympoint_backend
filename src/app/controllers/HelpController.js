@@ -1,7 +1,8 @@
 import * as Yup from 'yup';
 import HelpAnswers from '../models/HelpAnswers';
 import Students from '../models/Students';
-import Help from '../schemas/Help';
+import HelpNotification from '../schemas/HelpNotification';
+import User from '../models/Users';
 
 class HelpControllers {
   async store(req, res) {
@@ -26,9 +27,11 @@ class HelpControllers {
       question,
     });
 
-    /* Notification user Help */
-    await Help.create({
-      content: `Nova pergunta de ${student.name}.`,
+    /*
+      Notification admin
+    */
+    await HelpNotification.create({
+      content: `Nova pergunta do aluno(a) ${student.name}.`,
     });
 
     return res.json({

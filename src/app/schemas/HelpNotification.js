@@ -1,10 +1,14 @@
 import mongoose from 'mongoose';
 
-const AnswersSchema = new mongoose.Schema(
+const HelpNotificationSchema = new mongoose.Schema(
   {
     content: {
       type: String,
       required: true,
+    },
+    user: {
+      type: Number,
+      default: 1,
     },
     answered: {
       type: Boolean,
@@ -17,4 +21,4 @@ const AnswersSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.model('Answers', AnswersSchema);
+export default mongoose.model('HelpNotification', HelpNotificationSchema);

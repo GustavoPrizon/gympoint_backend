@@ -1,9 +1,9 @@
 <h1 align="center">
-  <img alt="Gympoint" title="Gympoint" src=".github/logo.png" width="200px" />
+  <img alt="Gympoint" title="Gympoint" src="#" width="200px" />
 </h1>
 
 <h3 align="center">
-  Desafio 2: Gympoint, o início
+  Desafio 2/3: Gympoint
 </h3>
 
 <blockquote align="center">“Não espere para plantar, apenas tenha paciência para colher”!</blockquote>
@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-entrega">Ferramentas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>
 </p>
 
@@ -34,7 +34,7 @@ Criado o backend da aplicação GymPoint. Onde um usuario Administrador, ira cad
 
 O aluno pode fazer checkin 5 na semana e fazer perguntas. 
 
-### Um pouco sobre as ferramentas
+### :ferramentas: Um pouco sobre as ferramentas
 
 - Sucrase + Nodemon;
 - ESLint + Prettier + EditorConfig;

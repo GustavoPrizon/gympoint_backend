@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Gympoint" title="Gympoint" src="#" width="200px" />
+  GymPoint
 </h1>
 
 <h3 align="center">
